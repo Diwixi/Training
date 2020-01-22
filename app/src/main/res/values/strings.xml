@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Training</string>
+    <string name="exercise">Подход:</string>
+    <string name="previous_value">Предыдущее значение:</string>
 </resources>

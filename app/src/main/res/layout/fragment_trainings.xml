@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/excercise"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:text="Жим"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/div1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/excercise"
+        app:layout_constraintBottom_toBottomOf="@+id/excercise"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="10dp"
+        />
+
+    <View
+        android:id="@+id/div1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/excercise" />
+
+    <TextView
+        android:id="@+id/excerciseNumber"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:text="Подход: 2"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/div1" />
+
+    <View
+        android:id="@+id/div2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cardview_dark_background"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/excerciseNumber" />
+
+    <TextView
+        android:id="@+id/previousExcerciseNumber"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Предыдущее значение: 8"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/div2" />
+
+    <View
+        android:id="@+id/div3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/cardview_dark_background"
+        app:layout_constraintTop_toBottomOf="@+id/previousExcerciseNumber" />
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div3"
+        app:np_dividerColor="@color/colorPrimary"
+        app:np_max="15"
+        app:np_min="0"
+        app:np_orientation="horizontal"
+        app:np_selectedTextColor="@color/colorPrimary"
+        app:np_textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        app:np_value="3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNextExerciseButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/design_default_color_error"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picker" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/endTrainingButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@color/design_default_color_secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
