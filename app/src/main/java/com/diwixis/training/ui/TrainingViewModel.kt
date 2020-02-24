@@ -1,9 +1,12 @@
-package com.diwixis.training
+package com.diwixis.training.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.diwixis.training.ui.VmModel
+import com.diwixis.training.ExerciseSet
+import com.diwixis.training.TrainingModel
+import com.diwixis.training.UiModel
+import com.diwixis.training.ui.exerciseBuilder.VmModel
 
 /**
  *
@@ -12,6 +15,7 @@ import com.diwixis.training.ui.VmModel
  */
 class TrainingViewModel : ViewModel() {
     private var trainingModel = TrainingModel("Жим", emptyList())
+
     private val uiDataVm: MutableLiveData<UiModel> = MutableLiveData()
     val uiData: LiveData<UiModel> get() = uiDataVm
 
@@ -29,7 +33,7 @@ class TrainingViewModel : ViewModel() {
     fun nextSet(data: VmModel) {
         trainingModel = trainingModel.copy(
             name = data.name,
-            sets = trainingModel.sets.plus(ExeciseSet(data.exerciseSetCount))
+            sets = trainingModel.sets.plus(ExerciseSet(data.exerciseSetCount))
         )
         uiDataVm.value = postData()
     }
@@ -39,19 +43,3 @@ class TrainingViewModel : ViewModel() {
         uiDataVm.value = postData()
     }
 }
-
-data class UiModel(
-    val name: String,
-    val exerciseSetNumber: Int,
-    val exerciseSetCount: Int,
-    val previousExerciseSetCount: Int
-)
-
-data class TrainingModel(
-    val name: String,
-    val sets: List<ExeciseSet>
-)
-
-data class ExeciseSet(
-    val count: Int
-)
